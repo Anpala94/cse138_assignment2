@@ -1,0 +1,112 @@
+FFFFFEFFFFF
+======================================================================
+ERROR: test_multiple_kvs (__main__.TestAssignment2.test_multiple_kvs)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/amin/.pyenv/versions/playground/lib/python3.11/site-packages/requests/models.py", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amin/.pyenv/versions/3.11.1/lib/python3.11/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amin/.pyenv/versions/3.11.1/lib/python3.11/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amin/.pyenv/versions/3.11.1/lib/python3.11/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/amin/Downloads/CSE 138/Assignment_2/grading/test_assignment2_query-params.py", line 166, in test_multiple_kvs
+    self.assertEqual(res.json()['val'], vals[0], 'Bad value for key 0 (multiple key-values)')
+                     ^^^^^^^^^^
+  File "/Users/amin/.pyenv/versions/playground/lib/python3.11/site-packages/requests/models.py", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+======================================================================
+FAIL: test_delete_nonexistent (__main__.TestAssignment2.test_delete_nonexistent)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/amin/Downloads/CSE 138/Assignment_2/grading/test_assignment2_query-params.py", line 104, in test_delete_nonexistent
+    self.assertEqual(res.status_code, 404, msg='Did not return status 404 (delete non-existent key)')
+AssertionError: 500 != 404 : Did not return status 404 (delete non-existent key)
+
+======================================================================
+FAIL: test_get_nonexistent (__main__.TestAssignment2.test_get_nonexistent)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/amin/Downloads/CSE 138/Assignment_2/grading/test_assignment2_query-params.py", line 95, in test_get_nonexistent
+    self.assertEqual(res.status_code, 404, msg='Did not return status 404 (get non-existent key)')
+AssertionError: 500 != 404 : Did not return status 404 (get non-existent key)
+
+======================================================================
+FAIL: test_malformed_delete (__main__.TestAssignment2.test_malformed_delete)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/amin/Downloads/CSE 138/Assignment_2/grading/test_assignment2_query-params.py", line 68, in test_malformed_delete
+    self.assertEqual(res.status_code, 400, msg='Did not return status 400 (malformed delete)')
+AssertionError: 500 != 400 : Did not return status 400 (malformed delete)
+
+======================================================================
+FAIL: test_malformed_get (__main__.TestAssignment2.test_malformed_get)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/amin/Downloads/CSE 138/Assignment_2/grading/test_assignment2_query-params.py", line 59, in test_malformed_get
+    self.assertEqual(res.status_code, 400, msg='Did not return status 400 (malformed get)')
+AssertionError: 500 != 400 : Did not return status 400 (malformed get)
+
+======================================================================
+FAIL: test_malformed_put (__main__.TestAssignment2.test_malformed_put)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/amin/Downloads/CSE 138/Assignment_2/grading/test_assignment2_query-params.py", line 50, in test_malformed_put
+    self.assertEqual(res.status_code, 400, msg='Did not return status 400 (malformed put)')
+AssertionError: 500 != 400 : Did not return status 400 (malformed put)
+
+======================================================================
+FAIL: test_put_delete_get (__main__.TestAssignment2.test_put_delete_get)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/amin/Downloads/CSE 138/Assignment_2/grading/test_assignment2_query-params.py", line 149, in test_put_delete_get
+    self.assertEqual(res.status_code, 200, msg='Did not return status 200 (put-delete-get: delete)')
+AssertionError: 500 != 200 : Did not return status 200 (put-delete-get: delete)
+
+======================================================================
+FAIL: test_put_get (__main__.TestAssignment2.test_put_get)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/amin/Downloads/CSE 138/Assignment_2/grading/test_assignment2_query-params.py", line 113, in test_put_get
+    self.assertEqual(res.status_code, 201, msg='Did not return status 201 (simple put then get: put)')
+AssertionError: 500 != 201 : Did not return status 201 (simple put then get: put)
+
+======================================================================
+FAIL: test_put_oversized_key (__main__.TestAssignment2.test_put_oversized_key)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/amin/Downloads/CSE 138/Assignment_2/grading/test_assignment2_query-params.py", line 77, in test_put_oversized_key
+    self.assertEqual(res.status_code, 400, msg='Did not return status 400 (put oversized key)')
+AssertionError: 500 != 400 : Did not return status 400 (put oversized key)
+
+======================================================================
+FAIL: test_put_oversized_value (__main__.TestAssignment2.test_put_oversized_value)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/amin/Downloads/CSE 138/Assignment_2/grading/test_assignment2_query-params.py", line 86, in test_put_oversized_value
+    self.assertEqual(res.status_code, 400, msg='Did not return status 400 (put oversized value)')
+AssertionError: 500 != 400 : Did not return status 400 (put oversized value)
+
+======================================================================
+FAIL: test_put_replace_get (__main__.TestAssignment2.test_put_replace_get)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/amin/Downloads/CSE 138/Assignment_2/grading/test_assignment2_query-params.py", line 130, in test_put_replace_get
+    self.assertEqual(res.status_code, 200, msg='Did not return status 200 (put-replace-get: replace)')
+AssertionError: 500 != 200 : Did not return status 200 (put-replace-get: replace)
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.681s
+
+FAILED (failures=10, errors=1)
